@@ -8,7 +8,7 @@ namespace Shop.Catalog.Entities
 	{
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string ProductImageID { get; set; }
+        public string ProductImageId { get; set; }
 
         public string Image1 { get; set; }
 
