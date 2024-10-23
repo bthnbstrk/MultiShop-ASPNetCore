@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Shop.Discount.Entities;
 
 namespace Shop.Discount.Context
 {
@@ -21,7 +24,11 @@ namespace Shop.Discount.Context
         {
             optionsBuilder.UseSqlServer("Servers=;");
         }
+        
+        public DbSet<Coupon> Coupons { get; set; }
 
-    }
+        public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
+
+	}
 }
 
