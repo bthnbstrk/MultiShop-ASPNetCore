@@ -1,6 +1,6 @@
 namespace Shop.Discount.Dtos;
 
-public class UpdateCouponDto
+public class ResultDiscountCouponDto
 {
     public int CouponId { get; set; }
 

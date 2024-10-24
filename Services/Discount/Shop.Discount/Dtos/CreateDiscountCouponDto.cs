@@ -1,9 +1,7 @@
 namespace Shop.Discount.Dtos;
 
-public class ResultCouponDto
+public class CreateDiscountCouponDto
 {
-    public int CouponId { get; set; }
-
     public string Code { get; set; }
 
     public int Rate { get; set; }
