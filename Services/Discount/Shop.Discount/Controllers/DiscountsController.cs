@@ -23,14 +23,14 @@ namespace Shop.Discount.Controllers
         [HttpGet]
         public async Task<IActionResult> DiscountCouponList()
         {
-            var values = _discountService.GetAllDiscountCouponAsync();
+            var values = await _discountService.GetAllDiscountCouponAsync();
             return Ok(values);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDiscountCouponById(int id)
         {
-            var values = _discountService.GetByIdDiscountCouponAsync(id);
+            var values = await  _discountService.GetByIdDiscountCouponAsync(id);
             return Ok(values);
         }
         

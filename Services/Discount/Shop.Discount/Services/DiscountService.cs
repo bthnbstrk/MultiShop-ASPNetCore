@@ -45,6 +45,7 @@ public class DiscountService : IDiscountService
         parameters.Add("@rate",updateDiscountCouponDto.Rate);
         parameters.Add("@isActive",updateDiscountCouponDto.IsActive);
         parameters.Add("@validDate",updateDiscountCouponDto.ValidDate);
+        parameters.Add("@couponId",updateDiscountCouponDto.CouponId);
     }
 
     public async Task DeleteDiscountCouponAsync(int id)
@@ -65,7 +66,7 @@ public class DiscountService : IDiscountService
         parameters.Add("couponId",id);
         using (var connection = _context.CreateConnection())
         {
-            var values = await connection.QueryFirstOrDefaultAsync<GetByIdCouponDto>(query);
+            var values = await connection.QueryFirstOrDefaultAsync<GetByIdCouponDto>(query, parameters);
             return values;
         }
     }
