@@ -1,6 +1,8 @@
-namespace MultiShop.Order.Application.Features.Mediator.Results.OrderingResults;
+using MediatR;
 
-public class GetOrderingQueryResult
+namespace MultiShop.Order.Application.Features.Mediator.Commands.OrderingCommands;
+
+public class UpdateOrderingCommand : IRequest
 {
     public int OrderingId { get; set; }
     public string UserId { get; set; }
