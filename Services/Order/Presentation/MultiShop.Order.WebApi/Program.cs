@@ -2,9 +2,12 @@ using MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
 using MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Application.Services;
+using MultiShop.Order.Persistence.Context;
 using MultiShop.Order.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<OrderContext>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddApplicationService(builder.Configuration);
@@ -22,7 +25,8 @@ builder.Services.AddScoped<UpdateOrderDetailCommandHandler>();
 builder.Services.AddScoped<RemoveOrderDetailCommandHandler>();
 #endregion
 
-// Add services to the container.
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -38,29 +42,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

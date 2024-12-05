@@ -7,7 +7,7 @@ public class OrderContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=...;intial Catalog=MultiShopOrderDb;integrated Security=true;");
+        optionsBuilder.UseSqlServer("Server=localhost,1434;Initial Catalog=MultiShopOrderDb;User=sa;Password=123456aA*;TrustServerCertificate=True;");
     }
     
     public DbSet<Address> Addresses { get; set; }
