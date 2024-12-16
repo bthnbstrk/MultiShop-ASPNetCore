@@ -1,3 +1,5 @@
+using Duende.IdentityServer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +8,7 @@ using Shop.IdentityServer.Models;
 
 namespace Shop.IdentityServer.Controllers
 {
+    [Authorize(IdentityServerConstants.LocalApi.PolicyName)]
     [Route("api/[controller]")]
     [ApiController]
     public class RegistersController : ControllerBase
