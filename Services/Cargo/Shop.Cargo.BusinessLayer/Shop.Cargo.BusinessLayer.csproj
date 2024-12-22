@@ -7,4 +7,14 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Shop.Cargo.DataAccessLayer\Shop.Cargo.DataAccessLayer.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Concrete\" />
+      <Folder Include="Extensions\" />
+      <Folder Include="ValidationRules\" />
+    </ItemGroup>
+
 </Project>
