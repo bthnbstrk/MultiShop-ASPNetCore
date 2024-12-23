@@ -1,6 +1,6 @@
-namespace Shop.Cargo.EntityLayer.Concrete;
+namespace Shop.Cargo.DtoLayer.Dtos.CargoCompanyDtos;
 
-public class CargoCompany
+public class UpdateCargoCompanyDto
 {
     public int CargoCompanyId { get; set; }
     public string CargoCompanyName { get; set; }

@@ -12,7 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Concrete\" />
       <Folder Include="Extensions\" />
       <Folder Include="ValidationRules\" />
     </ItemGroup>
