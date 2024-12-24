@@ -11,6 +11,7 @@ public static class Config
         new ApiResource("ResourceDiscount") { Scopes = { "DiscountFullPermission" } },
         new ApiResource("ResourceOrder") { Scopes = { "OrderFullPermission" } },
         new ApiResource("ResourceCargo") { Scopes = { "CargoFullPermission" } },
+        new ApiResource("ResourceBasket") { Scopes = { "BasketFullPermission" } },
         new ApiResource(IdentityServerConstants.LocalApi.ScopeName) 
     };
 
@@ -28,6 +29,7 @@ public static class Config
         new ApiScope("DiscountFullPermission", "Full authority for discount operations"),
         new ApiScope("OrderFullPermission", "Full authority for order operations"),
         new ApiScope("CargoFullPermission", "Full authority for cargo operations"),
+        new ApiScope("BasketFullPermission", "Full authority for basket operations"),
         new ApiScope(IdentityServerConstants.LocalApi.ScopeName) 
     };
 
@@ -62,7 +64,8 @@ public static class Config
             ClientSecrets = { new Secret("multishopsecret".Sha256()) },
             AllowedScopes =
             {
-                "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission","CargoFullPermission",
+                "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission",
+                "CargoFullPermission", "BasketFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
